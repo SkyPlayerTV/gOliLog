@@ -1,8 +1,8 @@
 package gOliLog
 
-import "log"
-
-const globalLogLevel int = 2
+import (
+	"log"
+)
 
 type GOliLogger struct {
 	logger   *log.Logger
@@ -53,7 +53,7 @@ func (gOliLogger GOliLogger) HandleErrF(err interface{}, extraText ...interface{
 
 //Log logs something to console. If loglevel is higher than the global loglevel, nothing will happen
 func (gOliLogger GOliLogger) Log(loglevel int, data interface{}) {
-	if loglevel <= globalLogLevel {
+	if loglevel <= gOliLogger.logLevel {
 		gOliLogger.logger.Println(data)
 	}
 }
