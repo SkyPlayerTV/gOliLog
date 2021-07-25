@@ -13,10 +13,10 @@ type GOliLogger struct {
 func InitLogger(prefix string, logLevel int) GOliLogger {
 	gOliLogger := GOliLogger{
 		logger:   log.New(log.Writer(), prefix, log.Default().Flags()),
-		prefix:   prefix,
+		prefix:   prefix + " | ",
 		logLevel: logLevel,
 	}
-	gOliLogger.logger.SetPrefix(prefix)
+	gOliLogger.logger.SetPrefix(prefix + " | ")
 	return gOliLogger
 }
 
